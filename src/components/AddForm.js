@@ -4,6 +4,7 @@ import { fetchFail, addSmurf, setError } from '../actions';
 
 const AddForm = (props) => {
     const { error } = props;
+    
     const [state, setState] = useState({
         name:"",
         position:"",
@@ -21,9 +22,9 @@ const AddForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {
-            setError(error);
+            setError("Name, position and nickname fields are required.");
         }
-        addSmurf(state)
+        addSmurf(state);
     }
 
     const errorMessage = "";
@@ -48,7 +49,7 @@ const AddForm = (props) => {
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
-                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
+                error && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {error}</div>
             }
             <button>Submit Smurf</button>
         </form>
