@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
         description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
     }
 
-    if (isLoading) {
+    if (loading) {
         return <h1>{loading}</h1>;
     }
 
